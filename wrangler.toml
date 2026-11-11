@@ -14,3 +14,4 @@ database_name = "aaf-nyc-gives-back"
 
 [[r2_buckets]]
 binding = "RECEIPTS"
+bucket_name = "aaf-nyc-gives-back-receipts"
