@@ -1,0 +1,16 @@
+name = "aaf-nyc-gives-back"
+main = "src/worker.js"
+compatibility_date = "2026-11-01"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = true
+
+# Wrangler 4 automatically provisions these bindings on the first deploy.
+[[d1_databases]]
+binding = "DB"
+database_name = "aaf-nyc-gives-back"
+
+[[r2_buckets]]
+binding = "RECEIPTS"

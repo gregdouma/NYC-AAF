@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#111018" />
+  <meta name="description" content="NYC Gives Back — AutoZoner Assistance Fund live fundraising event." />
+  <title>NYC Gives Back | AutoZoner Assistance Fund</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="demoNotice" class="demo-notice" hidden><strong>LOCAL PREVIEW</strong> — totals update on this computer only. Set up and deploy the secure event service to accept live phone submissions.</div>
+  <header class="topbar">
+    <a class="brand" href="?view=dashboard" aria-label="NYC Gives Back dashboard">
+      <img src="./assets/aaf-mark.png" alt="AutoZoner Assistance Fund" />
+      <span class="brand-divider"></span>
+      <span class="brand-titles"><span class="brand-title"><em>NYC</em> <strong>GIVES BACK</strong></span><small>AutoZoner Assistance Fund</small></span>
+    </a>
+    <div class="header-skyline" aria-hidden="true"></div>
+    <nav aria-label="Page navigation">
+      <a data-nav="dashboard" href="?view=dashboard">Live screen</a>
+      <a data-nav="donate" href="?view=donate">Donate / upload</a>
+      <a data-nav="admin" href="?view=admin">Admin</a>
+    </nav>
+  </header>
+  <main>
+    <section class="page dashboard-page" id="dashboardPage" hidden>
+      <div class="display-shell">
+        <div class="metrics-wrap">
+          <div class="section-topline"><span class="regionline">NEW YORK CITY REGION <span class="dashline"></span> TOGETHER WE GIVE</span><span class="live-chip"><span class="pulse"></span>LIVE</span></div>
+          <div class="main-metrics">
+            <article class="total-card" aria-live="polite"><div class="card-eyebrow">TOTAL RAISED</div><div class="money-value" id="totalRaised">$0</div><span class="small-caption">Approved contributions to the Assistance Fund</span></article>
+            <article class="goal-card"><span class="target-icon" aria-hidden="true">◎</span><div class="goal-value" id="goalValue">$5,000</div><div>REGIONAL GOAL</div></article>
+          </div>
+          <article class="meter-panel">
+            <div class="meter-heading"><span>PROGRESS TO GOAL</span><strong id="progressPercent">0%</strong></div>
+            <div class="meter-rail" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressAria"><div class="meter-fill" id="progressFill"></div></div>
+            <div class="meter-footer"><span id="goalSubline">$0 of $5,000 raised</span><span id="remainingText">$5,000 to go</span></div>
+          </article>
+          <div class="secondary-row">
+            <article class="count-card"><span class="count-icon" aria-hidden="true">✓</span><span class="count-copy"><span>VERIFIED DONATIONS</span><strong id="donationCount">0</strong><small>Approved contributions included in the total</small></span></article>
+            <article class="activity-card" title="Unique event-page sessions active within 90 seconds, plus sessions that opened the official AAF page within the last 10 minutes. Not a count from the corporate payment website."><span class="activity-symbol" aria-hidden="true"><span class="activity-pulse"></span>↗</span><span class="count-copy"><span>ZONERS ACTIVE NOW</span><strong id="activeZoners">0</strong><small>In our donation flow • estimated live activity</small></span></article>
+            <article class="milestone-card" id="milestoneCard" hidden><span aria-hidden="true" class="milestone-icon">★</span><span><small>NEXT MILESTONE</small><strong id="nextMilestone">$1,000</strong><span id="milestoneRemaining">$1,000 away</span></span></article>
+          </div>
+          <section class="team-panel" id="teamPanel" hidden><div class="team-header">DISTRICT CHALLENGE <small>Verified totals</small></div><div id="teamRanks"></div></section>
+          <div class="skyline" aria-hidden="true"></div>
+          <div class="nyc-region-signature">NYC Region <span>///</span></div>
+        </div>
+        <aside class="side-panel">
+          <div class="side-head">MAKE A DIFFERENCE TODAY</div>
+          <div class="qr-wrap"><img id="eventQr" src="./assets/official-qr.png" alt="Event donation QR" /><span id="qrHint" class="qr-hint">Scan to start</span></div>
+          <a id="eventAction" class="primary-cta" href="?view=donate">DONATE &amp; REPORT <span aria-hidden="true">↗</span></a>
+          <div class="steps-title">HOW TO PARTICIPATE</div>
+          <ol class="steps"><li><span>1</span> Scan this QR code</li><li><span>2</span> Donate on the official AAF page</li><li><span>3</span> Upload your confirmation</li></ol>
+          <p class="side-note">Donations go directly to AutoZoner Assistance Fund. Only reviewed contributions appear in the total.</p>
+        </aside>
+      </div>
+    </section>
+    <section class="page form-page" id="donatePage" hidden>
+      <div class="form-shell">
+        <div class="small-kicker">NEW YORK CITY REGION • AUTOZONER ASSISTANCE FUND</div>
+        <h1>Give back. Make an impact.</h1>
+        <p class="intro">Your gift goes straight to the official AutoZoner Assistance Fund. After donating, share a screenshot of the confirmation so it can count toward our meeting total.</p>
+        <p class="activity-note">This event page anonymously counts active browser sessions for the meeting screen. Activity on the corporate payment page is not visible to this tracker.</p>
+        <div class="step-card"><div class="step-bubble">1</div><div><h2>Make your donation</h2><p>Use the official AutoZone donation page. It may ask for your employee credentials.</p><a class="action-orange" id="corporateDonateLink" href="https://egud.fa.us2.oraclecloud.com/fscmUI/redwood/aafFormUI" target="_blank" rel="noopener noreferrer">Open official AAF donation page ↗</a></div></div>
+        <div class="step-card"><div class="step-bubble">2</div><div class="step-content"><h2>Upload your confirmation</h2><p>Take a screenshot showing the completed donation and amount. Crop out personal or payment details.</p>
+          <form id="donationForm">
+            <label class="input-label" for="receiptFile">Donation confirmation screenshot</label>
+            <input type="file" id="receiptFile" name="proof" accept="image/jpeg,image/png,image/webp" required />
+            <p class="field-help">PNG, JPG or WebP • maximum 5 MB • no amount to type</p>
+            <div id="teamChooser" hidden><label class="input-label" for="donorTeam">Your district / team</label><select id="donorTeam"></select></div>
+            <button type="submit" id="sendReceipt" class="action-orange full">Submit confirmation →</button>
+            <div id="donorMessage" class="message" role="status" aria-live="polite"></div>
+          </form>
+        </div></div>
+        <div class="form-footer">We do not process donations or access the corporate payment system. Screenshot submissions are reviewed before being counted.</div>
+      </div>
+    </section>
+    <section class="page admin-page" id="adminPage" hidden>
+      <div class="admin-shell">
+        <div class="small-kicker">EVENT OPERATIONS</div><h1>Fundraising Control Center</h1>
+        <p class="admin-desc">Review receipts, update the goal, and manage your live screen. The public display never exposes screenshots.</p>
+        <div id="adminLogin" class="admin-login"><label for="adminToken">Administrator access token</label><div class="inline-form"><input id="adminToken" type="password" autocomplete="off" placeholder="Paste your private ADMIN_TOKEN" /><button id="adminUnlock" class="action-orange">Unlock</button></div><p id="loginHelp" class="field-help">Set this secret during deployment. Never share it with attendees.</p></div>
+        <div id="adminWorkbench" hidden>
+          <div class="admin-status"><span id="adminModeTag">Connected</span><button id="adminLogout" class="quiet-button">Lock admin</button></div>
+          <div class="admin-grid">
+            <section class="admin-card settings-card"><div class="section-label">MEETING SETTINGS</div>
+              <label for="settingGoal">Fundraising goal ($)</label><input id="settingGoal" type="number" min="1" max="1000000" step="1" />
+              <label for="settingMode">Display mode</label><select id="settingMode"><option value="regional">Single regional total — no team selection</option><option value="team">Team competition / district leaderboard</option></select>
+              <div id="teamSettings" hidden><label for="settingTeams">Team names — one per line</label><textarea id="settingTeams" rows="5" placeholder="District 1&#10;District 2"></textarea></div>
+              <label class="checkbox-label"><input type="checkbox" id="settingMilestones" /> Show optional prize milestones</label>
+              <div id="milestoneSettings" hidden><label for="settingMilestoneValues">Milestone amounts (comma-separated)</label><input id="settingMilestoneValues" placeholder="500, 1000, 2500, 5000" /></div>
+              <button id="saveSettings" class="action-orange full">Save meeting settings</button><div id="settingsMessage" class="message" role="status"></div>
+            </section>
+            <section class="admin-card"><div class="section-label">REVIEW QUEUE</div><div class="queue-stats"><span id="queuePending">0 pending</span><span id="queueApproved">0 approved</span></div>
+              <div id="queueList" class="queue-list"><p class="muted">No submissions yet.</p></div>
+              <button id="refreshQueue" class="quiet-button">Refresh submissions</button>
+            </section>
+          </div>
+          <section class="admin-card" id="demoActivityControls" hidden><div class="section-label">LOCAL PREVIEW — SIMULATE ACTIVE ZONERS</div><p class="muted">For testing the display only. This does not create donors or transactions, and this control is unavailable on the deployed event.</p><div class="quick-add-fields"><input id="simulateActiveCount" type="number" min="0" max="150" step="1" value="5" aria-label="Preview count of active Zoners" /><button id="simulateActiveButton" class="action-orange">Set preview active count</button></div></section>
+          <section class="admin-card quick-add"><div><div class="section-label">MANUAL VERIFIED ENTRY</div><p>Backup for an in-person donation verified by the meeting organizer. This immediately changes the live totals.</p></div><div class="quick-add-fields"><input id="manualAmount" type="number" min="0.01" step="0.01" placeholder="Amount ($)" aria-label="Manual donation amount" /><select id="manualTeam" hidden aria-label="Team for manual donation"></select><button id="manualAdd" class="action-orange">Add verified donation</button></div><div id="manualMessage" class="message" role="status"></div></section>
+          <div class="admin-bottom"><a href="?view=dashboard&amp;screen=1" target="_blank">Open projector screen in a second tab ↗</a><span>Display refreshes every 3 seconds</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="modal-overlay" id="reviewModal" hidden><div class="review-dialog" role="dialog" aria-modal="true" aria-labelledby="reviewHeading"><button id="modalClose" class="modal-close" aria-label="Close review">×</button><div class="section-label">DONATION CONFIRMATION</div><h2 id="reviewHeading">Review screenshot</h2><p id="reviewMeta" class="muted"></p><img id="reviewImage" class="receipt-image" alt="Uploaded donation confirmation" /><p id="manualReceiptNote" class="muted" hidden>Manually verified entry: no screenshot was provided.</p><label for="reviewAmount">Verified donation amount ($)</label><input id="reviewAmount" type="number" min="0.01" max="10000" step="0.01" placeholder="Read amount from screenshot" /><label for="reviewNote">Reviewer note (optional)</label><input id="reviewNote" maxlength="250" placeholder="e.g., exact amount and confirmation checked"/><div class="review-actions"><button id="reviewDelete" class="outline-button danger-button">Delete entry</button><button id="reviewReject" class="outline-button">Reject</button><button id="reviewApprove" class="action-orange">Approve &amp; update total</button></div><div id="reviewMessage" role="status" class="message"></div></div></div>
+  <div id="celebration" class="celebration" hidden><div class="celebration-inner"><div class="celebration-icon">✦</div><div>GOAL MILESTONE UNLOCKED!</div><strong id="celebrationValue">$1,000</strong></div></div>
+  <script src="./app.js" defer></script>
+</body>
+</html>

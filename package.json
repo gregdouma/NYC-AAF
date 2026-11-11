@@ -1,0 +1,15 @@
+{
+  "name": "aaf-nyc-gives-back",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "NYC Gives Back live fundraising dashboard with donor-proof submission and protected admin review.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:init": "wrangler d1 execute DB --remote --file=schema.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4.102.0"
+  }
+}
